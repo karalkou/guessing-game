@@ -7,38 +7,28 @@ class GuessingGame {
     }
 
     setRange(min, max) {
-        /* some logic */
+        this.rangeArr.length = 0;
+        if(min < max){
+            this.maxIndex = max;
+            this.minIndex = min;
+            console.log("----setRange: ", this.maxIndex, this.minIndex, this.guessingNum);
+        }
     }
 
     guess() {
-        /* some logic */
+        this.guessingNum = Math.round((this.maxIndex + this.minIndex) / 2);
+        console.log("----guess: ", this.maxIndex, this.minIndex, this.guessingNum);
         return this.guessingNum;
     }
 
     lower() {
         this.maxIndex = this.guessingNum;
+        console.log("----lower: ",this.maxIndex, this.minIndex, this.guessingNum);
     }
 
     greater() {
         this.minIndex = this.guessingNum;
-    }
-
-    someLogic(arr, data){
-        let upperBound = arr.length-1;
-        let lowerBound = 0;
-        while (lowerBound <= upperBound) {
-            let mid = Math.floor((upperBound + lowerBound) / 2);
-            if (arr[mid] < data) {
-                lowerBound = mid + 1;
-            }
-            else if (arr[mid] > data) {
-                upperBound = mid - 1;
-            }
-            else {
-                return mid;
-            }
-        }
-        return -1;
+        console.log("----greater: ", this.maxIndex, this.minIndex, this.guessingNum);
     }
 }
 
